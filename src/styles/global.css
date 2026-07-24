@@ -23,12 +23,12 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  overflow: hidden;
   background-color: var(--bg-main);
   color: var(--text-primary);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -61,7 +61,7 @@ html, body {
   z-index: 1;
 }
 
-/* Minimalist Subtle Grid Overlay */
+/* Minimalist Grid Overlay */
 .bg-minimal-grid {
   position: absolute;
   inset: 0;
@@ -74,7 +74,7 @@ html, body {
   z-index: 2;
 }
 
-/* Subtle Animated Light Streaks (Light Mode) */
+/* Light Streaks */
 .light-streak {
   position: absolute;
   width: 1.5px;
@@ -91,7 +91,7 @@ html, body {
   100% { transform: translateY(500px); opacity: 0; }
 }
 
-/* Kleanity Minimalist Typography */
+/* Kleanity Typography */
 .title-minimal {
   color: #0f172a;
   letter-spacing: -0.03em;
@@ -99,7 +99,7 @@ html, body {
 
 /* Glass Capsules & Minimal White Cards */
 .glass-header-capsule {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(226, 232, 240, 0.9);

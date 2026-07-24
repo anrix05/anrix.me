@@ -23,14 +23,14 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen max-h-screen overflow-hidden p-3 sm:p-6 bg-[#f4f4f6] flex items-center justify-center">
+    <div className="relative w-screen min-h-screen h-auto lg:h-screen lg:max-h-screen overflow-y-auto lg:overflow-hidden p-2 sm:p-4 md:p-6 bg-[#f4f4f6] flex items-center justify-center">
       
       {/* Background Outer Ambient Glows */}
       <div className="minimal-ambient-tr" />
       <div className="minimal-ambient-bl" />
 
-      {/* Main Single Page Kleanity Frame */}
-      <div className="relative w-full h-full max-w-7xl rounded-[24px] sm:rounded-[36px] bg-white border border-slate-200/90 shadow-2xl shadow-slate-400/20 flex flex-col justify-between overflow-hidden">
+      {/* Main Container Frame */}
+      <div className="relative w-full min-h-full h-auto lg:h-full max-w-7xl rounded-2xl sm:rounded-[28px] lg:rounded-[36px] bg-white border border-slate-200/90 shadow-2xl shadow-slate-400/20 flex flex-col justify-between overflow-hidden">
         
         {/* Minimal Grid Pattern */}
         <div className="bg-minimal-grid" />
