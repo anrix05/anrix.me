@@ -22,9 +22,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
 
   const renderNodeIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Briefcase': return <Briefcase className="w-4 h-4" />;
-      case 'Skull': return <Skull className="w-4 h-4" />;
-      default: return <Zap className="w-4 h-4" />;
+      case 'Briefcase': return <Briefcase className="w-4 h-4 text-sky-500" />;
+      case 'Skull': return <Skull className="w-4 h-4 text-emerald-500" />;
+      default: return <Zap className="w-4 h-4 text-purple-500" />;
     }
   };
 
@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
   const marqueeList = [...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE];
 
   return (
-    <div className="relative flex-1 flex flex-col justify-between items-center px-4 sm:px-6 py-2 overflow-hidden z-20">
+    <div className="relative flex-1 flex flex-col justify-between items-center px-3 sm:px-6 py-2 overflow-hidden z-20">
       
       {/* Light Streaks */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
         })}
       </svg>
 
-      {/* Floating Subdomain Nodes (Portfolio, Graveyard, Zeroblur) */}
+      {/* Floating Subdomain Nodes (Desktop Only) */}
       <div className="absolute inset-0 max-w-[1400px] mx-auto pointer-events-none z-30 hidden lg:block">
         {SUBDOMAIN_NODES.map((node) => {
           const isActive = activeNode?.id === node.id;
@@ -105,7 +105,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
                 isActive ? 'scale-105 z-40' : 'scale-100 opacity-95 hover:opacity-100'
               }`}
             >
-              {/* Floating Node Card Pill */}
               <div 
                 className="glass-node-pill px-4 py-2.5 rounded-2xl flex items-center gap-3 transition-all duration-300"
                 style={{
@@ -129,7 +128,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
                 </div>
               </div>
 
-              {/* Hover Tooltip Details */}
               {isActive && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 p-3 rounded-xl glass-header-capsule border border-slate-300 text-xs shadow-2xl text-left animate-fadeIn">
                   <div className="flex items-center justify-between text-slate-900 font-mono text-[11px] mb-1 font-bold">
@@ -144,34 +142,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
         })}
       </div>
 
-      {/* Play Reel Trigger Button */}
-      <div className="relative z-30 mb-2 mt-1">
+      {/* Reel Trigger Button */}
+      <div className="relative z-30 mb-1 mt-1">
         <button
           onClick={onOpenDemoVideo}
-          className="w-10 h-10 rounded-full glass-header-capsule flex items-center justify-center text-slate-700 hover:text-slate-950 hover:scale-110 shadow-md transition-all group"
+          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-header-capsule flex items-center justify-center text-slate-700 hover:text-slate-950 hover:scale-110 shadow-md transition-all group"
           title="Play Reel"
         >
-          <Play className="w-3.5 h-3.5 fill-current text-slate-900 group-hover:scale-110 transition-transform ml-0.5" />
+          <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current text-slate-900 group-hover:scale-110 transition-transform ml-0.5" />
         </button>
       </div>
 
-      {/* Main Center Headline & Subtitle Block */}
+      {/* Main Center Headline & Subtitle */}
       <div className="relative z-30 max-w-xl sm:max-w-2xl text-center flex flex-col items-center my-auto px-2">
         
-        {/* Top Badge */}
+        {/* Announcement Badge */}
         <a
           href="https://portfolio.anrix.me"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-1 rounded-full glass-header-capsule text-xs font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer transition-all duration-300 hover:scale-105 mb-4 shadow-sm"
+          className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 rounded-full glass-header-capsule text-[11px] sm:text-xs font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer transition-all duration-300 hover:scale-105 mb-3 shadow-sm max-w-full truncate"
         >
-          <Globe className="w-3.5 h-3.5 text-slate-950" />
-          <span>{PERSONAL_INFO.badge}</span>
+          <Globe className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+          <span className="truncate">{PERSONAL_INFO.badge}</span>
         </a>
 
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-950 mb-4 leading-[1.05] font-heading title-minimal">
-          One-click for <span className="underline decoration-slate-300 underline-offset-8">Anrix Network.</span>
+        {/* Clean Headline */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 mb-3 leading-[1.1] font-heading title-minimal">
+          One-click for <span className="underline decoration-slate-300 underline-offset-4 sm:underline-offset-8">Anrix Network.</span>
         </h1>
 
         {/* Subtitle */}
@@ -179,58 +177,62 @@ export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) =
           {PERSONAL_INFO.subtitle}
         </p>
 
-        {/* Mobile Subdomain Card Grid */}
-        <div className="grid grid-cols-3 gap-2 w-full max-w-md lg:hidden my-4">
+        {/* Subdomain Cards (Mobile & Tablet Viewport: Full Width Stacked Cards) */}
+        <div className="w-full max-w-md lg:hidden my-2 flex flex-col sm:grid sm:grid-cols-3 gap-2">
           {SUBDOMAIN_NODES.map((node) => (
             <a
               key={node.id}
               href={node.url}
               target="_blank"
               rel="noreferrer"
-              className="glass-node-pill p-2.5 rounded-xl flex flex-col items-center text-center border border-slate-200 hover:border-slate-400 transition-colors"
+              className="glass-node-pill p-3 rounded-2xl flex items-center justify-between text-left border border-slate-200 hover:border-slate-400 transition-colors shadow-sm"
             >
-              <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 mb-1">
-                {renderNodeIcon(node.icon)}
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+                  {renderNodeIcon(node.icon)}
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-bold text-slate-900 tracking-tight font-heading truncate">
+                    {node.name}
+                  </div>
+                  <div className="text-[10px] text-slate-500 font-mono truncate">{node.subdomain}</div>
+                </div>
               </div>
-              <div className="text-[11px] font-bold text-slate-900 flex items-center gap-0.5">
-                <span>{node.name}</span>
-                <ArrowUpRight className="w-2.5 h-2.5 text-slate-400" />
-              </div>
-              <div className="text-[9px] text-slate-500 font-mono truncate max-w-full">{node.subdomain}</div>
+              <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
             </a>
           ))}
         </div>
 
       </div>
 
-      {/* Bottom Bar Controls */}
+      {/* Bottom Controls */}
       <div className="relative z-30 w-full max-w-6xl flex items-center justify-between mt-auto pt-2">
         <button
           onClick={onOpenTerminal}
           className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-header-capsule text-xs text-slate-600 hover:text-slate-950 transition-colors"
         >
-          <div className="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-200 flex items-center justify-center">
             <ChevronDown className="w-3 h-3 text-slate-700" />
           </div>
-          <span className="font-mono text-[11px] font-medium">01/01 . Minimalist Hub Active</span>
+          <span className="font-mono text-[10px] sm:text-[11px] font-medium">01/01 . Network Active</span>
         </button>
 
-        <div className="hidden sm:flex flex-col items-end gap-1 text-right">
-          <span className="text-xs font-bold text-slate-900 tracking-wide font-mono">
-            3 Active Subdomains • anrix.me
+        <div className="flex flex-col items-end gap-1 text-right">
+          <span className="text-[10px] sm:text-xs font-bold text-slate-900 tracking-wide font-mono">
+            3 Subdomains • anrix.me
           </span>
-          <div className="flex items-center gap-1.5">
-            <div className="w-6 h-1 rounded-full bg-sky-500" />
-            <div className="w-6 h-1 rounded-full bg-emerald-500" />
-            <div className="w-6 h-1 rounded-full bg-purple-500" />
+          <div className="flex items-center gap-1">
+            <div className="w-4 sm:w-6 h-1 rounded-full bg-sky-500" />
+            <div className="w-4 sm:w-6 h-1 rounded-full bg-emerald-500" />
+            <div className="w-4 sm:w-6 h-1 rounded-full bg-purple-500" />
           </div>
         </div>
       </div>
 
       {/* Bottom Marquee Navigation Ticker */}
-      <div className="relative z-30 w-full pt-3 border-t border-slate-200/80 overflow-hidden">
+      <div className="relative z-30 w-full pt-2 sm:pt-3 border-t border-slate-200/80 overflow-hidden">
         <div className="flex overflow-hidden select-none">
-          <div className="animate-marquee flex items-center gap-8">
+          <div className="animate-marquee flex items-center gap-6 sm:gap-8">
             {marqueeList.map((item, index) => (
               <a
                 key={`${item.name}-${index}`}
