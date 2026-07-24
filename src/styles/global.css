@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #f4f4f6;
+    --bg-frame: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-light: rgba(226, 232, 240, 0.8);
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: rgba(15, 23, 42, 0.15);
+  color: #0f172a;
+}
+
+/* Minimalist Background Gradients */
+.minimal-ambient-tr {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(226, 232, 240, 0.7) 0%, rgba(241, 245, 249, 0.3) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.minimal-ambient-bl {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(203, 213, 225, 0.5) 0%, rgba(248, 250, 252, 0.2) 45%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Minimalist Subtle Grid Overlay */
+.bg-minimal-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 90%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle Animated Light Streaks (Light Mode) */
+.light-streak {
+  position: absolute;
+  width: 1.5px;
+  background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.15), transparent);
+  animation: fallStreak linear infinite;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+@keyframes fallStreak {
+  0% { transform: translateY(-80px); opacity: 0; }
+  30% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(500px); opacity: 0; }
+}
+
+/* Kleanity Minimalist Typography */
+.title-minimal {
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+/* Glass Capsules & Minimal White Cards */
+.glass-header-capsule {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.glass-node-pill {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 1);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-node-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -5px rgba(15, 23, 42, 0.14);
+}
+
+/* Marquee continuous scroll */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
