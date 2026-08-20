@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Warm Mustard Tile with Black Outline -->
+  <rect x="5" y="5" width="90" height="90" rx="26" fill="#F9B844" stroke="#1A1A1A" stroke-width="7" />
+  
+  <!-- Motion Rays Doodle Above 'A' -->
+  <path d="M35 22L28 10" stroke="#1A1A1A" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M50 20V8" stroke="#1A1A1A" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M65 22L72 10" stroke="#1A1A1A" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Bold 'A' Text -->
+  <text x="50%" y="68%" dominant-baseline="central" text-anchor="middle" fill="#1A1A1A" font-family="Outfit, system-ui, sans-serif" font-weight="900" font-size="54">A</text>
+</svg>

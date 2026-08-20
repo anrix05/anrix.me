@@ -1,257 +1,144 @@
-import React, { useState } from 'react';
-import { PERSONAL_INFO, SUBDOMAIN_NODES, SubdomainNode, TECH_MARQUEE } from '../data/portfolioData';
-import { 
-  Play, 
-  ArrowUpRight, 
-  ChevronDown, 
-  Briefcase, 
-  Skull, 
-  Zap, 
-  Globe,
-  Triangle,
-  Command
-} from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { SUBDOMAINS, PERSONAL_INFO } from '../data/subdomainsData';
+import { MonitorCard } from './MonitorCard';
+import {
+  TitleRays,
+  LeftSquiggle,
+  RightSquiggle,
+  HangingLamp,
+  CharacterTopLeft,
+  CharacterTopCenter,
+  CharacterTopRight,
+  CharacterSittingAtDesk,
+  DeskClutterLeft,
+  DeskClutterRight
+} from './IllustrationElements';
 
-interface HeroProps {
-  onOpenTerminal: () => void;
-  onOpenDemoVideo: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onOpenTerminal, onOpenDemoVideo }) => {
-  const [activeNode, setActiveNode] = useState<SubdomainNode | null>(null);
-
-  const renderNodeIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Briefcase': return <Briefcase className="w-4 h-4 text-sky-500" />;
-      case 'Skull': return <Skull className="w-4 h-4 text-emerald-500" />;
-      default: return <Zap className="w-4 h-4 text-purple-500" />;
-    }
-  };
-
-  const getTechIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Briefcase': return <Briefcase className="w-3.5 h-3.5 text-slate-700" />;
-      case 'Skull': return <Skull className="w-3.5 h-3.5 text-slate-700" />;
-      case 'Zap': return <Zap className="w-3.5 h-3.5 text-slate-700" />;
-      case 'Triangle': return <Triangle className="w-3.5 h-3.5 text-slate-500" />;
-      default: return <Command className="w-3.5 h-3.5 text-slate-500" />;
-    }
-  };
-
-  const marqueeList = [...TECH_MARQUEE, ...TECH_MARQUEE, ...TECH_MARQUEE];
-
+export const Hero: React.FC = () => {
   return (
-    <div className="relative flex-1 flex flex-col justify-between items-center px-3 sm:px-6 py-2 overflow-hidden z-20">
+    <section className="relative w-full overflow-hidden pt-4 sm:pt-6 pb-8 sm:pb-12 flex flex-col items-center justify-between min-h-[calc(100vh-80px)]">
       
-      {/* Light Streaks */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="light-streak left-[32%] top-0 h-44" style={{ animationDuration: '5.5s', animationDelay: '0s' }} />
-        <div className="light-streak left-[49%] top-0 h-60" style={{ animationDuration: '4.2s', animationDelay: '1.2s' }} />
-        <div className="light-streak left-[51%] top-0 h-52" style={{ animationDuration: '4.8s', animationDelay: '0.6s' }} />
-        <div className="light-streak left-[68%] top-0 h-40" style={{ animationDuration: '6.2s', animationDelay: '2.1s' }} />
-      </div>
+      {/* Background Blobs */}
+      <div 
+        className="absolute -top-12 -right-16 w-80 h-80 sm:w-96 sm:h-96 rounded-full opacity-60 pointer-events-none z-0"
+        style={{ backgroundColor: '#FDE08B' }}
+      />
+      <div 
+        className="absolute -bottom-10 -left-12 w-64 h-64 sm:w-80 sm:h-80 opacity-40 pointer-events-none z-0 transform -rotate-12"
+        style={{
+          backgroundColor: '#E07A5F',
+          clipPath: 'polygon(0% 20%, 60% 0%, 100% 40%, 80% 100%, 10% 90%)'
+        }}
+      />
 
-      {/* SVG Connecting Curved Beams */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden lg:block opacity-70">
-        {SUBDOMAIN_NODES.map((node) => {
-          const isLeft = node.position.x < 50;
-          const isTop = node.position.y < 50;
-          
-          const startX = `${node.position.x}%`;
-          const startY = `${node.position.y}%`;
-          const midX = isLeft ? `${node.position.x + 10}%` : `${node.position.x - 10}%`;
-          const midY = isTop ? `${node.position.y + 6}%` : `${node.position.y - 6}%`;
-          const endX = "50%";
-          const endY = "50%";
+      {/* Decorative Squiggles */}
+      <LeftSquiggle className="absolute top-16 left-4 sm:left-12 w-12 sm:w-16 h-16 sm:h-20 pointer-events-none z-10 hidden sm:block" />
+      <RightSquiggle className="absolute bottom-36 right-4 sm:right-10 w-12 sm:w-16 h-16 sm:h-20 pointer-events-none z-10 hidden sm:block" />
 
-          const isActive = activeNode?.id === node.id;
-
-          return (
-            <g key={node.id}>
-              <path
-                d={`M ${startX} ${startY} Q ${midX} ${midY} ${endX} ${endY}`}
-                fill="none"
-                stroke={isActive ? "#0f172a" : "rgba(15, 23, 42, 0.12)"}
-                strokeWidth={isActive ? "2" : "1.2"}
-                strokeDasharray={isActive ? "none" : "3 3"}
-                className="transition-all duration-300"
-              />
-              <circle r={isActive ? "4" : "2.5"} fill={isActive ? "#0f172a" : "#64748b"}>
-                <animateMotion
-                  path={`M ${startX} ${startY} Q ${midX} ${midY} ${endX} ${endY}`}
-                  dur={`${4 + (node.position.x % 3)}s`}
-                  repeatCount="indefinite"
-                />
-              </circle>
-            </g>
-          );
-        })}
-      </svg>
-
-      {/* Floating Subdomain Nodes (Desktop Only) */}
-      <div className="absolute inset-0 max-w-[1400px] mx-auto pointer-events-none z-30 hidden lg:block">
-        {SUBDOMAIN_NODES.map((node) => {
-          const isActive = activeNode?.id === node.id;
-          return (
-            <a
-              key={node.id}
-              href={node.url}
-              target="_blank"
-              rel="noreferrer"
-              style={{ left: `${node.position.x}%`, top: `${node.position.y}%` }}
-              onMouseEnter={() => setActiveNode(node)}
-              onMouseLeave={() => setActiveNode(null)}
-              className={`absolute pointer-events-auto transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 ${
-                isActive ? 'scale-105 z-40' : 'scale-100 opacity-95 hover:opacity-100'
-              }`}
-            >
-              <div 
-                className="glass-node-pill px-4 py-2.5 rounded-2xl flex items-center gap-3 transition-all duration-300"
-                style={{
-                  borderColor: isActive ? '#0f172a' : 'rgba(226, 232, 240, 1)'
-                }}
-              >
-                <div 
-                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover:scale-110"
-                  style={{ backgroundColor: `${node.color}15`, color: node.color }}
-                >
-                  {renderNodeIcon(node.icon)}
-                </div>
-
-                <div className="flex flex-col text-left">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: node.color }} />
-                    <span className="text-xs font-bold text-slate-900 tracking-tight font-heading">{node.name}</span>
-                    <ArrowUpRight className="w-3 h-3 text-slate-400" />
-                  </div>
-                  <span className="text-[10px] text-slate-500 font-mono -mt-0.5">{node.subdomain}</span>
-                </div>
-              </div>
-
-              {isActive && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 p-3 rounded-xl glass-header-capsule border border-slate-300 text-xs shadow-2xl text-left animate-fadeIn">
-                  <div className="flex items-center justify-between text-slate-900 font-mono text-[11px] mb-1 font-bold">
-                    <span>{node.category}</span>
-                    <span className="text-slate-600 font-normal">{node.stat}</span>
-                  </div>
-                  <p className="text-slate-600 text-[11px] leading-tight">{node.description}</p>
-                </div>
-              )}
-            </a>
-          );
-        })}
-      </div>
-
-      {/* Reel Trigger Button */}
-      <div className="relative z-30 mb-1 mt-1">
-        <button
-          onClick={onOpenDemoVideo}
-          className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-header-capsule flex items-center justify-center text-slate-700 hover:text-slate-950 hover:scale-110 shadow-md transition-all group"
-          title="Play Reel"
-        >
-          <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current text-slate-900 group-hover:scale-110 transition-transform ml-0.5" />
-        </button>
-      </div>
-
-      {/* Main Center Headline & Subtitle */}
-      <div className="relative z-30 max-w-xl sm:max-w-2xl text-center flex flex-col items-center my-auto px-2">
+      {/* --- HERO HEADER SECTION --- */}
+      <div className="relative z-20 max-w-3xl text-center px-4 mb-2 sm:mb-4 flex flex-col items-center">
         
-        {/* Announcement Badge */}
-        <a
-          href="https://portfolio.anrix.me"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 rounded-full glass-header-capsule text-[11px] sm:text-xs font-semibold text-slate-700 hover:text-slate-950 hover:bg-slate-100 cursor-pointer transition-all duration-300 hover:scale-105 mb-3 shadow-sm max-w-full truncate"
+        {/* Title Rays above Heading */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-1"
         >
-          <Globe className="w-3.5 h-3.5 text-slate-950 shrink-0" />
-          <span className="truncate">{PERSONAL_INFO.badge}</span>
-        </a>
+          <TitleRays className="w-16 h-8 sm:w-20 sm:h-10 mx-auto" />
+        </motion.div>
 
-        {/* Clean Headline */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 mb-3 leading-[1.1] font-heading title-minimal">
-          One-click for <span className="underline decoration-slate-300 underline-offset-4 sm:underline-offset-8">Anrix Network.</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="max-w-lg text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-4">
-          {PERSONAL_INFO.subtitle}
-        </p>
-
-        {/* Subdomain Cards (Mobile & Tablet Viewport: Full Width Stacked Cards) */}
-        <div className="w-full max-w-md lg:hidden my-2 flex flex-col sm:grid sm:grid-cols-3 gap-2">
-          {SUBDOMAIN_NODES.map((node) => (
-            <a
-              key={node.id}
-              href={node.url}
-              target="_blank"
-              rel="noreferrer"
-              className="glass-node-pill p-3 rounded-2xl flex items-center justify-between text-left border border-slate-200 hover:border-slate-400 transition-colors shadow-sm"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                  {renderNodeIcon(node.icon)}
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-bold text-slate-900 tracking-tight font-heading truncate">
-                    {node.name}
-                  </div>
-                  <div className="text-[10px] text-slate-500 font-mono truncate">{node.subdomain}</div>
-                </div>
-              </div>
-              <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
-            </a>
-          ))}
-        </div>
-
-      </div>
-
-      {/* Bottom Controls */}
-      <div className="relative z-30 w-full max-w-6xl flex items-center justify-between mt-auto pt-2">
-        <button
-          onClick={onOpenTerminal}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full glass-header-capsule text-xs text-slate-600 hover:text-slate-950 transition-colors"
+        {/* Main Title Heading */}
+        <motion.h1 
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl sm:text-7xl lg:text-8xl font-black font-heading text-[#1A1A1A] tracking-tight leading-none mb-3 sm:mb-4"
         >
-          <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-slate-200 flex items-center justify-center">
-            <ChevronDown className="w-3 h-3 text-slate-700" />
-          </div>
-          <span className="font-mono text-[10px] sm:text-[11px] font-medium">01/01 . Network Active</span>
-        </button>
+          {PERSONAL_INFO.heading}
+        </motion.h1>
 
-        <div className="flex flex-col items-end gap-1 text-right">
-          <span className="text-[10px] sm:text-xs font-bold text-slate-900 tracking-wide font-mono">
-            3 Subdomains • anrix.me
-          </span>
-          <div className="flex items-center gap-1">
-            <div className="w-4 sm:w-6 h-1 rounded-full bg-sky-500" />
-            <div className="w-4 sm:w-6 h-1 rounded-full bg-emerald-500" />
-            <div className="w-4 sm:w-6 h-1 rounded-full bg-purple-500" />
+        {/* Subheading */}
+        <motion.p 
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-base sm:text-xl lg:text-2xl text-[#1A1A1A] font-semibold max-w-2xl leading-snug px-2"
+        >
+          {PERSONAL_INFO.subheading}
+        </motion.p>
+      </div>
+
+      {/* --- MONITOR GROUP & ILLUSTRATION SCENE --- */}
+      <div className="relative z-20 w-full max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 flex flex-col items-center">
+        
+        {/* Pendant Lamp Doodle hanging over Middle Monitor (Desktop Only) */}
+        <HangingLamp className="absolute -top-24 left-1/2 -translate-x-1/2 z-30 hidden lg:flex pointer-events-none" />
+
+        {/* Grid of 3 Desktop Monitors */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-16 sm:gap-20 lg:gap-6 xl:gap-8 items-end justify-center mb-0">
+          
+          {/* Card 1: Portfolio (Left Monitor) */}
+          <div className="relative w-full flex justify-center">
+            <MonitorCard 
+              subdomain={SUBDOMAINS[0]} 
+              index={0} 
+              CharacterComponent={<CharacterTopLeft />}
+            />
           </div>
+
+          {/* Card 2: Graveyard (Middle Monitor) */}
+          <div className="relative w-full flex justify-center">
+            <MonitorCard 
+              subdomain={SUBDOMAINS[1]} 
+              index={1} 
+              CharacterComponent={<CharacterTopCenter />}
+            />
+          </div>
+
+          {/* Card 3: Zeroblur (Right Monitor) */}
+          <div className="relative w-full flex justify-center">
+            <MonitorCard 
+              subdomain={SUBDOMAINS[2]} 
+              index={2} 
+              CharacterComponent={<CharacterTopRight />}
+            />
+          </div>
+
         </div>
       </div>
 
-      {/* Bottom Marquee Navigation Ticker */}
-      <div className="relative z-30 w-full pt-2 sm:pt-3 border-t border-slate-200/80 overflow-hidden">
-        <div className="flex overflow-hidden select-none">
-          <div className="animate-marquee flex items-center gap-6 sm:gap-8">
-            {marqueeList.map((item, index) => (
-              <a
-                key={`${item.name}-${index}`}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-slate-600 hover:text-slate-950 transition-colors cursor-pointer text-decoration-none"
-              >
-                {getTechIcon(item.icon)}
-                <span className="text-xs font-bold tracking-tight font-heading whitespace-nowrap">
-                  {item.name}
-                </span>
-                {item.url !== '#' && <ArrowUpRight className="w-3 h-3 text-slate-400" />}
-              </a>
-            ))}
+      {/* --- DESK SCENE & FOREGROUND CHARACTERS --- */}
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-2 sm:px-6 mt-0 pointer-events-none">
+        
+        {/* Desk Top Surface Bar */}
+        <div className="relative w-full h-8 sm:h-10 bg-[#D97736] border-y-[3.5px] border-[#1A1A1A] rounded-sm shadow-md flex items-center justify-between px-4 sm:px-12">
+          
+          {/* Desk Clutter Left: Stack of books + Stapler */}
+          <div className="absolute left-4 sm:left-12 -top-10 sm:-top-12 z-20 pointer-events-auto">
+            <DeskClutterLeft />
           </div>
+
+          {/* Desk Clutter Right: Pen cup + 2 Potted plants */}
+          <div className="absolute right-4 sm:right-12 -top-24 sm:-top-28 z-20 pointer-events-auto">
+            <DeskClutterRight />
+          </div>
+
+          {/* Sitting Character in White Office Chair (Properly Positioned Below Monitor Content) */}
+          <div className="absolute left-1/2 -translate-x-1/2 -top-20 sm:-top-24 z-30 pointer-events-none">
+            <CharacterSittingAtDesk />
+          </div>
+
+        </div>
+
+        {/* Desk Legs */}
+        <div className="w-full flex justify-between px-12 sm:px-24 h-6 sm:h-8">
+          <div className="w-4 sm:w-6 h-full bg-[#B45309] border-x-[3px] border-[#1A1A1A]" />
+          <div className="w-4 sm:w-6 h-full bg-[#B45309] border-x-[3px] border-[#1A1A1A]" />
         </div>
       </div>
 
-    </div>
+    </section>
   );
 };
