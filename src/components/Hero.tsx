@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
       <RightSquiggle className="absolute bottom-36 right-2 sm:right-10 w-10 sm:w-16 h-14 sm:h-20 pointer-events-none z-10 hidden sm:block" />
 
       {/* --- HERO HEADER SECTION --- */}
-      <div className="relative z-20 max-w-3xl text-center px-4 mb-2 sm:mb-4 flex flex-col items-center">
+      <div className="relative z-20 max-w-3xl text-center px-4 mb-4 sm:mb-6 flex flex-col items-center">
         
         {/* Title Rays above Heading */}
         <motion.div
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-7xl md:text-7xl lg:text-8xl font-black font-heading text-[#1A1A1A] tracking-tight leading-none mb-2 sm:mb-4"
+          className="text-4xl sm:text-7xl md:text-7xl lg:text-8xl font-black font-heading text-[#1A1A1A] tracking-tight leading-none mb-3 sm:mb-4"
         >
           {PERSONAL_INFO.heading}
         </motion.h1>
@@ -71,13 +71,14 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* --- MONITOR GROUP & ILLUSTRATION SCENE --- */}
-      <div className="relative z-20 w-full max-w-7xl px-3 sm:px-6 lg:px-8 mt-14 sm:mt-24 flex flex-col items-center">
+      {/* Increased top margin on mobile (mt-28 sm:mt-32 md:mt-24) so peeking character hair does not cover subheading text */}
+      <div className="relative z-20 w-full max-w-7xl px-3 sm:px-6 lg:px-8 mt-28 sm:mt-32 md:mt-24 flex flex-col items-center">
         
         {/* Pendant Lamp Doodle hanging over Middle Monitor (Tablet & Desktop Only) */}
         <HangingLamp className="absolute -top-24 left-1/2 -translate-x-1/2 z-30 hidden md:flex pointer-events-none" />
 
-        {/* Grid of 3 Desktop Monitors (Responsive Grid: 1 col on mobile, 3 cols on tablet & desktop) */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-16 sm:gap-20 md:gap-4 lg:gap-6 xl:gap-8 items-end justify-center mb-0">
+        {/* Grid of 3 Desktop Monitors */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-24 sm:gap-28 md:gap-4 lg:gap-6 xl:gap-8 items-end justify-center mb-0">
           
           {/* Card 1: Portfolio (Left Monitor) */}
           <div className="relative w-full flex justify-center">
