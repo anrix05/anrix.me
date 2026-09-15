@@ -3,12 +3,18 @@
  * Interactivity: Count-up Statistics & Mobile Sheet Navigation
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initApp() {
   initCountUpStats();
   initMobileMenu();
   initBgVideo();
   initSubdomainsModal();
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initApp);
+} else {
+  initApp();
+}
 
 /**
  * 1. Count-up Stats Animation
