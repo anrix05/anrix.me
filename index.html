@@ -1,20 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ANRIX — Minimalist Subdomain Network Hub connecting portfolio, experimental apps, and legacy builds." />
-    <meta name="keywords" content="anrix, anrix.me, software engineer, developer portfolio, react, typescript, fullstack developer" />
-    <title>ANRIX — Minimalist Subdomain Hub | anrix.me</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="ANRIX — Central navigation portal and direct access hub connecting portfolio, graveyard archive, and zeroblur product platform." />
+  <title>ANRIX — Central Subdomain Network Hub</title>
+
+  <!-- Favicons: ANRIX Official Logo -->
+  <link rel="icon" type="image/webp" href="assets/logo.webp?v=5" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=5" />
+  <link rel="shortcut icon" href="favicon.ico?v=5" />
+  <link rel="apple-touch-icon" href="assets/logo.webp?v=5" />
+
+  <!-- Google Fonts: Inter (UI: weights 400, 500, 600) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Display Font: BubbledotICG-FinePos via OnlineWebFonts CDN -->
+  <link href="https://db.onlinewebfonts.com/c/8cb707a9b8a73f8a7403336b861c3074?family=BubbledotICG-FinePos" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5.2 (Enterprise Brand Icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Full-Viewport Cover Video Background -->
+  <div class="bg">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_012548_ef22562c-c0ae-4816-ad9d-f8922af4e6a7.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- Main Single-Viewport Page Composition -->
+  <div class="page">
+
+    <!-- 1) Header Region -->
+    <header class="header">
+      <!-- Circular Logo -->
+      <a href="#" class="logo-btn" aria-label="ANRIX Home">
+        <img src="assets/logo.webp" alt="" class="logo-img" width="52" height="52" />
+      </a>
+
+      <!-- Desktop Navigation Pill (White) -->
+      <nav class="nav-pill" aria-label="Primary Navigation">
+        <ul style="display: contents; list-style: none;">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://portfolio.anrix.me" target="_blank" rel="noopener noreferrer" class="nav-link">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://graveyard.anrix.me" target="_blank" rel="noopener noreferrer" class="nav-link">Graveyard</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://zeroblur.anrix.me" target="_blank" rel="noopener noreferrer" class="nav-link">Zeroblur</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Action / GitHub Pill (Dark) -->
+      <a href="https://github.com/anrix05" target="_blank" rel="noopener noreferrer" class="sign-in-btn">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+
+      <!-- Mobile Circular Burger Button -->
+      <button class="burger-btn" type="button" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="burger-icon">
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </span>
+      </button>
+    </header>
+
+    <!-- 2) Hero Region -->
+    <main class="hero">
+
+      <!-- Trust Row: 3 Overlapping Subdomain Avatar Rings + Trust Pill -->
+      <div class="trust-row anim" style="--d: 0.05s;">
+        <!-- Subdomain 1: Portfolio -->
+        <a
+          href="https://portfolio.anrix.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="trust-avatar trust-avatar-1"
+          title="Portfolio Subdomain — Main Showcase & Bio (portfolio.anrix.me)"
+          aria-label="Portfolio Subdomain"
+        >
+          <div class="trust-avatar-inner">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+        </a>
+
+        <!-- Subdomain 2: Graveyard -->
+        <a
+          href="https://graveyard.anrix.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="trust-avatar trust-avatar-2"
+          title="Graveyard Subdomain — 14+ Legacy Builds & Archives (graveyard.anrix.me)"
+          aria-label="Graveyard Subdomain"
+        >
+          <div class="trust-avatar-inner">
+            <i class="fa-solid fa-ghost"></i>
+          </div>
+        </a>
+
+        <!-- Subdomain 3: Zeroblur -->
+        <a
+          href="https://zeroblur.anrix.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="trust-avatar trust-avatar-3"
+          title="Zeroblur Subdomain — Product Platform & System (zeroblur.anrix.me)"
+          aria-label="Zeroblur Subdomain"
+        >
+          <div class="trust-avatar-inner">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+        </a>
+
+        <!-- Trust Pill Overlapping Subdomain 3 -->
+        <div class="trust-pill">
+          <span>Central Gateway · 3 Subdomains Active</span>
+        </div>
+      </div>
+
+      <!-- Headline: Solid White BubbledotICG-FinePos Font -->
+      <h1 class="headline anim">
+        <span class="headline-line headline-line-1">ANRIX NETWORK</span>
+        <span class="headline-line headline-line-2">SUBDOMAIN HUB</span>
+      </h1>
+
+      <!-- Subhead (Base Font + 2pt, Opacity 0.8) -->
+      <p class="subhead anim" style="--d: 0.28s;">
+        Central gateway connecting my flagship portfolio, 14+ archived legacy builds, and active product platforms under the Anrix ecosystem.
+      </p>
+
+      <!-- Glowing CTA Pill Button: Opens Interactive Subdomains Showcase -->
+      <button
+        type="button"
+        id="explore-btn"
+        class="cta-btn anim"
+        style="--d: 0.4s;"
+        aria-haspopup="dialog"
+        aria-controls="subdomains-modal"
+        onclick="window.openSubdomainsModal && window.openSubdomainsModal(event)"
+      >
+        Explore Subdomains
+      </button>
+    </main>
+
+    <!-- 3) Stats Footer Region (4 Metrics for Subdomain Network) -->
+    <footer class="stats">
+      <!-- Metric 1: Connected Subdomains -->
+      <div class="stat-item anim" style="--d: 0.5s;">
+        <span class="stat-icon">&lt;</span>
+        <div class="stat-value-wrap">
+          <span class="stat-number" data-target="3" data-decimals="0">0</span>
+          <span class="stat-suffix">&nbsp;Active</span>
+        </div>
+        <span class="stat-label">Connected Subdomains</span>
+      </div>
+
+      <!-- Metric 2: Archived Builds -->
+      <div class="stat-item anim" style="--d: 0.58s;">
+        <span class="stat-icon">#</span>
+        <div class="stat-value-wrap">
+          <span class="stat-number" data-target="14" data-decimals="0">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <span class="stat-label">Archived Builds</span>
+      </div>
+
+      <!-- Metric 3: Ecosystem Uptime -->
+      <div class="stat-item anim" style="--d: 0.66s;">
+        <span class="stat-icon">*</span>
+        <div class="stat-value-wrap">
+          <span class="stat-number" data-target="24" data-decimals="0">0</span>
+          <span class="stat-suffix">/7</span>
+        </div>
+        <span class="stat-label">Ecosystem Uptime</span>
+      </div>
+
+      <!-- Metric 4: Direct Access Routing -->
+      <div class="stat-item anim" style="--d: 0.74s;">
+        <span class="stat-icon">%</span>
+        <div class="stat-value-wrap">
+          <span class="stat-number" data-target="100" data-decimals="0">0</span>
+          <span class="stat-suffix">%</span>
+        </div>
+        <span class="stat-label">Direct Routing</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Mobile Fullscreen Backdrop Overlay -->
+  <div class="mobile-overlay" hidden></div>
+
+  <!-- Mobile White Sheet Menu -->
+  <nav class="mobile-sheet" aria-label="Mobile Navigation" hidden>
+    <ul class="mobile-nav-list">
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link active">Home</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="https://portfolio.anrix.me" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Portfolio</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="https://graveyard.anrix.me" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Graveyard</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="https://zeroblur.anrix.me" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">Zeroblur</a>
+      </li>
+    </ul>
+
+    <div class="mobile-signin-wrap">
+      <a href="https://github.com/anrix05" target="_blank" rel="noopener noreferrer" class="mobile-signin-btn">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub · anrix05</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Subdomains Spotlight Carousel Modal -->
+  <div id="subdomains-modal" class="modal-backdrop" aria-hidden="true" hidden>
+    <div class="modal-dialog spotlight-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2 id="modal-title" class="modal-title">ANRIX SUBDOMAINS NETWORK</h2>
+          <p class="modal-desc">Framed showcase across all connected applications, products, and archives</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Spotlight Carousel Stage -->
+      <div class="spotlight-carousel" aria-roledescription="carousel">
+        <!-- Prev Arrow -->
+        <button type="button" class="carousel-arrow prev-arrow" id="carousel-prev" aria-label="Previous subdomain">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Shingled Rail -->
+        <div class="spotlight-rail" id="spotlight-rail">
+          <!-- Card 0: Portfolio -->
+          <div class="spotlight-card card-portfolio" data-index="0" data-accent="#38bdf8" role="group" aria-roledescription="slide" aria-label="Portfolio Subdomain">
+            <div class="photo-frame">
+              <img src="assets/portfolio-v2.webp?v=3" alt="Portfolio Showcase" class="photo-img" />
+              <div class="photo-overlay"></div>
+            </div>
+            <div class="card-shingle-label">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>Portfolio</span>
+            </div>
+            <div class="card-caption">
+              <div class="caption-badge badge-portfolio">
+                <span class="caption-dot"></span>
+                <span>Main Showcase &amp; Bio</span>
+              </div>
+              <h3 class="caption-title">Portfolio</h3>
+              <span class="caption-url">portfolio.anrix.me</span>
+              <p class="caption-text">
+                Flagship portfolio showcasing interactive web applications, client projects, professional experience, and technical skills.
+              </p>
+              <div class="caption-actions">
+                <a href="https://portfolio.anrix.me" target="_blank" rel="noopener noreferrer" class="caption-launch-btn btn-portfolio">
+                  <span>Launch Portfolio</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 1: Graveyard (Default Center Spotlight) -->
+          <div class="spotlight-card card-graveyard is-spotlight" data-index="1" data-accent="#34d399" role="group" aria-roledescription="slide" aria-label="Graveyard Subdomain">
+            <div class="photo-frame">
+              <img src="assets/graveyard-v2.webp?v=3" alt="Graveyard Archive Vault" class="photo-img" />
+              <div class="photo-overlay"></div>
+            </div>
+            <div class="card-shingle-label">
+              <i class="fa-solid fa-ghost"></i>
+              <span>Graveyard</span>
+            </div>
+            <div class="card-caption">
+              <div class="caption-badge badge-graveyard">
+                <span class="caption-dot"></span>
+                <span>14 Legacy Builds</span>
+              </div>
+              <h3 class="caption-title">Graveyard</h3>
+              <span class="caption-url">graveyard.anrix.me</span>
+              <p class="caption-text">
+                Dedicated archive vault preserving 14+ retired projects, sunsetted web applications, hackathon entries, and experimental code builds.
+              </p>
+              <div class="caption-actions">
+                <a href="https://graveyard.anrix.me" target="_blank" rel="noopener noreferrer" class="caption-launch-btn btn-graveyard">
+                  <span>Enter Archive Vault</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Zeroblur -->
+          <div class="spotlight-card card-zeroblur" data-index="2" data-accent="#a855f7" role="group" aria-roledescription="slide" aria-label="Zeroblur Subdomain">
+            <div class="photo-frame">
+              <img src="assets/zeroblur-v2.webp?v=3" alt="Zeroblur Platform" class="photo-img" />
+              <div class="photo-overlay"></div>
+            </div>
+            <div class="card-shingle-label">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Zeroblur</span>
+            </div>
+            <div class="card-caption">
+              <div class="caption-badge badge-zeroblur">
+                <span class="caption-dot"></span>
+                <span>Product System</span>
+              </div>
+              <h3 class="caption-title">Zeroblur</h3>
+              <span class="caption-url">zeroblur.anrix.me</span>
+              <p class="caption-text">
+                High-performance digital product platform, web services ecosystem, and core system telemetry dashboard.
+              </p>
+              <div class="caption-actions">
+                <a href="https://zeroblur.anrix.me" target="_blank" rel="noopener noreferrer" class="caption-launch-btn btn-zeroblur">
+                  <span>Launch Platform</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Arrow -->
+        <button type="button" class="carousel-arrow next-arrow" id="carousel-next" aria-label="Next subdomain">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Carousel Navigation Dots & Hints -->
+      <div class="carousel-footer">
+        <div class="carousel-dots" id="carousel-dots">
+          <button type="button" class="dot-btn" data-dot="0" aria-label="Spotlight Portfolio"></button>
+          <button type="button" class="dot-btn active" data-dot="1" aria-label="Spotlight Graveyard"></button>
+          <button type="button" class="dot-btn" data-dot="2" aria-label="Spotlight Zeroblur"></button>
+        </div>
+        <span class="carousel-hint">Use &larr; / &rarr; keys or click any shingled photograph to spotlight</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactivity Script -->
+  <script src="main.js"></script>
+</body>
 </html>
