@@ -1,19 +1,33 @@
-import React from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Intro from './components/Intro';
+import SubdomainIndex from './components/SubdomainIndex';
+import Footer from './components/Footer';
 
 export const App: React.FC = () => {
-  return (
-    <div className="relative min-h-screen w-full bg-[#F9B844] text-[#1A1A1A] flex flex-col justify-between overflow-x-hidden font-body selection:bg-[#1A1A1A] selection:text-[#F9B844]">
-      
-      {/* Top Navbar */}
-      <Navbar />
+  const [hoveredAccent, setHoveredAccent] = useState<string | null>(null);
 
-      {/* Main Playful Illustrated Hero */}
-      <main className="flex-1 flex flex-col justify-center pb-8 sm:pb-12">
-        <Hero />
-      </main>
-      
+  return (
+    <div
+      className="page-wrapper"
+      style={{
+        '--glow-color': hoveredAccent || 'transparent'
+      } as React.CSSProperties}
+    >
+      {/* 600px soft radial glow backdrop (8% opacity, 400ms transition) */}
+      <div
+        className={`bg-glow-layer ${hoveredAccent ? 'is-active' : ''}`}
+        aria-hidden="true"
+      />
+
+      <div className="content-container">
+        <Header />
+        <main id="main-content" className="site-main" role="main">
+          <Intro />
+          <SubdomainIndex onHoverAccentChange={setHoveredAccent} />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
