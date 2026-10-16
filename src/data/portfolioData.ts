@@ -20,7 +20,8 @@ export const PERSONAL_INFO = {
   subdomains: [
     { name: "Portfolio", url: "https://portfolio.anrix.me", desc: "Main project showcase & bio" },
     { name: "Graveyard", url: "https://graveyard.anrix.me", desc: "Retired apps & archived builds" },
-    { name: "Zeroblur", url: "https://zeroblur.anrix.me", desc: "Zeroblur product & system" }
+    { name: "Zeroblur", url: "https://zeroblur.anrix.me", desc: "Zeroblur product & system" },
+    { name: "NexaLink", url: "https://nexalink.anrix.me", desc: "Institutional alumni & campus platform" }
   ]
 };
 
@@ -60,6 +61,18 @@ export const SUBDOMAIN_NODES: SubdomainNode[] = [
     description: "Zeroblur high-performance digital product platform.",
     position: { x: 50, y: 74 },
     color: "#a855f7" // Purple glow
+  },
+  {
+    id: "nexalink",
+    name: "NexaLink",
+    subdomain: "nexalink.anrix.me",
+    url: "https://nexalink.anrix.me",
+    stat: "Active App",
+    category: "Campus & Alumni",
+    icon: "GraduationCap",
+    description: "Institutional alumni data management and student engagement platform for VIT Mumbai.",
+    position: { x: 50, y: 20 },
+    color: "#FD9C03" // Amber gold glow
   }
 ];
 
@@ -67,6 +80,7 @@ export const TECH_MARQUEE = [
   { name: "Portfolio", url: "https://portfolio.anrix.me", icon: "Briefcase" },
   { name: "Graveyard", url: "https://graveyard.anrix.me", icon: "Skull" },
   { name: "Zeroblur", url: "https://zeroblur.anrix.me", icon: "Zap" },
+  { name: "NexaLink", url: "https://nexalink.anrix.me", icon: "GraduationCap" },
   { name: "Vercel", url: "#", icon: "Triangle" },
   { name: "Raycast", url: "#", icon: "Command" },
 ];

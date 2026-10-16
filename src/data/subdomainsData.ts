@@ -1,5 +1,5 @@
 export interface SubdomainData {
-  id: 'portfolio' | 'graveyard' | 'zeroblur';
+  id: 'portfolio' | 'graveyard' | 'zeroblur' | 'nexalink';
   name: string;
   subdomain: string;
   url: string;
@@ -11,7 +11,7 @@ export interface SubdomainData {
   badgeBg: string;
   buttonBg: string;
   buttonHover: string;
-  iconType: 'briefcase' | 'ghost' | 'zap';
+  iconType: 'briefcase' | 'ghost' | 'zap' | 'graduation-cap';
 }
 
 export const SUBDOMAINS: SubdomainData[] = [
@@ -59,6 +59,21 @@ export const SUBDOMAINS: SubdomainData[] = [
     buttonBg: '#9333EA',
     buttonHover: '#7E22CE',
     iconType: 'zap'
+  },
+  {
+    id: 'nexalink',
+    name: 'NexaLink',
+    subdomain: 'nexalink.anrix.me',
+    url: 'https://nexalink.anrix.me',
+    badge: 'Active App',
+    tagline: 'Campus & Alumni Platform',
+    description: 'Institutional alumni data management and student engagement platform.',
+    color: '#FD9C03',
+    bgColor: '#FFFBEB',
+    badgeBg: '#FD9C03',
+    buttonBg: '#FD9C03',
+    buttonHover: '#D97706',
+    iconType: 'graduation-cap'
   }
 ];
 

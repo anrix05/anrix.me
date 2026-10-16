@@ -13,6 +13,7 @@
 | **Portfolio** | [https://portfolio.anrix.me](https://portfolio.anrix.me) | Main Showcase / Active | Flagship portfolio showcasing web applications, client projects, and professional experience. |
 | **Graveyard** | [https://graveyard.anrix.me](https://graveyard.anrix.me) | Archived Apps / 14 Legacy Builds | Vault of sunsetted projects, legacy builds, old hackathon entries, and code experiments. |
 | **Zeroblur** | [https://zeroblur.anrix.me](https://zeroblur.anrix.me) | Product & System / Active App | High-performance digital product platform and web application system. |
+| **NexaLink** | [https://nexalink.anrix.me](https://nexalink.anrix.me) | Campus & Alumni / Active | Institutional alumni data management and student engagement platform. |
 
 ---
 
@@ -41,3 +42,11 @@
 * **Category:** Product & System
 * **Theme / Color:** Purple (`#a855f7`)
 * **Purpose:** Core platform for Zeroblur digital product services and system dashboard.
+
+### 4. NexaLink Subdomain
+* **Domain:** `nexalink.anrix.me`
+* **URL:** `https://nexalink.anrix.me`
+* **Status:** Active (Campus Platform)
+* **Category:** Campus & Alumni
+* **Theme / Color:** Amber Gold (`#FD9C03`)
+* **Purpose:** Institutional alumni data management and verified student-alumni engagement platform for VIT Mumbai.

@@ -60,5 +60,16 @@ export const SUBDOMAINS: SubdomainItem[] = [
     isActive: true,
     accent: '#a855f7',
     description: 'High-performance digital product platform and system dashboard.'
+  },
+  {
+    id: 'nexalink',
+    index: '04',
+    name: 'NexaLink',
+    url: 'https://nexalink.anrix.me',
+    category: 'Campus & Alumni',
+    status: 'Active',
+    isActive: true,
+    accent: '#FD9C03',
+    description: 'Institutional alumni data management and student engagement platform.'
   }
 ];
